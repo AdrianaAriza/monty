@@ -25,6 +25,7 @@ void (*get_op_code(char *s, int l_n, char *token))(stack_t **, unsigned int)
 		{"pchar", op_pchar},
 		{"rotl", op_rotl},
 		{"pstr", op_pstr},
+		{"rotr", op_rotr},
 		{NULL, NULL}
 	};
 	while (opcodes[i].opcode && s)
