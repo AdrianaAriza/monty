@@ -19,7 +19,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		while (tmp->next && tmp->n != 0)
+		while (tmp && tmp->n != 0)
 		{
 			if (tmp->n >= 0 && tmp->n < 128)
 				putchar(tmp->n);
