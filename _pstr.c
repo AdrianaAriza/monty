@@ -11,7 +11,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	line_number++;
 	if (!stack || !*stack)
 		putchar('\n');
-	if ((*stack)->next == NULL)
+	else if ((*stack)->next == NULL)
 	{
 		putchar((*stack)->n);
 		putchar('\n');
