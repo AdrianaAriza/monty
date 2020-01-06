@@ -6,7 +6,7 @@
  */
 void op_rotr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *aux1, *aux2;
+	stack_t *aux1;
 
 	line_number++;
 	if (!stack || !*stack || !(*stack)->next)
@@ -15,15 +15,12 @@ void op_rotr(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
+		aux1 = *stack;
 		while ((*stack)->next)
 			*stack = (*stack)->next;
-		aux1 = *stack;
-		while (aux1)
-		{
-			aux2 = aux1->prev;
-			aux1->prev = aux1->next;
-			aux1->next = aux2;
-			aux1 = aux1->next;
-		}
+		(*stack)->prev->next = NULL;
+		(*stack)->next = aux1;
+		(*stack)->prev = NULL;
+		aux1->prev = *stack;
 	}
 }
