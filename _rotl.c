@@ -9,7 +9,7 @@ void op_rotl(stack_t **stack, unsigned int line_number)
 	stack_t *aux1, *aux2;
 
 	line_number++;
-	if (!stack || !*stack)
+	if (!stack || !*stack || !((*stack)->next))
 		;
 	else
 	{
