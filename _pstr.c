@@ -20,7 +20,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	{
 		while (tmp->next && tmp->n != 0)
 		{
-			if (tmp->n > 0 && tmp->n < 128)
+			if (tmp->n >= 0 && tmp->n < 128)
 				putchar(tmp->n);
 			else
 				break;
