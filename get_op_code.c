@@ -12,6 +12,7 @@ void (*get_op_code(char *s, int l_n, char *token))(stack_t **, unsigned int)
 	char *err = "unknown instruction";
 	instruction_t opcodes[] = {
 		{"push", op_push},
+		{"qush", op_qush},
 		{"pall", op_pall},
 		{"pint", op_pint},
 		{"pop", op_pop},

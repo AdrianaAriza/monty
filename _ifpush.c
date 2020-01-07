@@ -7,11 +7,14 @@
 int _ifpush(char *token)
 {
 	char *s = "push";
-	int i = 0;
+	int i = 1;
 
-	while (s[i] == token[i] && s[i])
-		i++;
-	if (!s[i] && !token[i])
-		return (1);
+	if (token[0] == 'q' || token[0] == 'p')
+	{
+		while (s[i] == token[i] && s[i])
+			i++;
+		if (!s[i] && !token[i])
+			return (1);
+	}
 	return (-1);
 }

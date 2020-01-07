@@ -12,6 +12,7 @@ void _getline(FILE *file)
 	size_t s_buffer = 1;
 	stack_t *stack;
 	void (*f)(stack_t **stack, unsigned int line_number);
+	int m = 0, fm = 0;
 
 	stack = NULL;
 	while (getline(&buffer, &s_buffer, file) != -1)
@@ -19,6 +20,12 @@ void _getline(FILE *file)
 		if (!token || token[0] == '#')
 		{	l_n++;
 			continue; }
+		m = _getmode(token, &fm);
+		if (m == 1 || m == 2)
+		{	l_n++;
+			continue; }
+		if (fm == 2 && m != 0)
+			token[0] = 'q';
 		f = get_op_code(token, l_n, token);
 		if (_ifpush(token) == 1)
 		{

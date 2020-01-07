@@ -25,3 +25,35 @@ void op_mod(stack_t **stack, unsigned int l_number)
 	op_pop(stack, l_number);
 	(*stack)->n = (*stack)->n % sub_n;
 }
+/**
+ *op_qush - add anode
+ *@stack: head node
+ *@line_number: data n
+ */
+void op_qush(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new;
+	stack_t *aux;
+
+	line_number++;
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		freel(*stack);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	aux = *stack;
+	new->n = n;
+	new->next = NULL;
+	if (!*stack)
+	{
+		new->prev = NULL;
+		*stack = new;
+		return;
+	}
+	while (aux->next)
+		aux = aux->next;
+	new->prev = aux;
+	aux->next = new;
+}

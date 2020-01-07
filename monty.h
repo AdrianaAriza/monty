@@ -35,6 +35,11 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+typedef struct	mode_s
+{
+	char *mode;
+        int m;
+} modes_t;
 
 void (*get_op_code(char *s, int l_n, char *token))(stack_t **, unsigned int);
 void op_push(stack_t **stack, unsigned int line_number);
@@ -56,5 +61,9 @@ void op_pchar(stack_t **stack, unsigned int line_number);
 void op_rotl(stack_t **stack, unsigned int line_number);
 void op_pstr(stack_t **stack, unsigned int line_number);
 void op_rotr(stack_t **stack, unsigned int line_number);
+void op_qush(stack_t **stack, unsigned int line_number);
+void op_stack(char *token, unsigned int line_number);
+void op_queue(char *token, unsigned int line_number);
+int _getmode(char * s, int *fm);
 
 #endif
